@@ -1,23 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { toQueryString, getParams } from "./utils";
-import "./styles.css";
+import styles from "./styles.css";
 
 const AUTHORIZATION_URL = "https://api.codechef.com/oauth/authorize?";
 const TOKEN_URL = "https://api.codechef.com/oauth/token";
-
-const loginButton = {
-  display: "inline-block",
-  background: "rgb(218, 216, 216)",
-  color: "rgb(58, 38, 38)",
-  width: 200,
-  paddingTop: 10,
-  paddingBottom: 10,
-  borderRadius: 2,
-  border: "1px solid transparent",
-  fontSize: 16,
-  height: 50
-};
 
 export default class CodechefLogin extends Component {
   constructor(props) {
@@ -39,7 +26,6 @@ export default class CodechefLogin extends Component {
 
   static defaultProps = {
     buttonText: "Login With Codechef",
-    className: "loginButton",
     responseType: "code"
   };
 
@@ -68,7 +54,7 @@ export default class CodechefLogin extends Component {
       })
     })
       .then(response => response.json())
-      .catch(err => this.onFailure(new Error(err)));
+      .catch(err => this.props.onFailure(new Error(err)));
   }
 
   onButtonClick() {
@@ -83,13 +69,17 @@ export default class CodechefLogin extends Component {
   }
 
   render() {
+    let buttonStyle;
+    if (this.props.className) {
+      buttonStyle = this.props.className;
+    } else {
+      buttonStyle = styles.loginButton;
+    }
+
     return (
-      <button className={this.props.className} style={loginButton} onClick={this.onButtonClick}>
+      <button className={buttonStyle} onClick={this.onButtonClick}>
         {this.props.buttonText}
       </button>
     );
   }
 }
-
-
-
