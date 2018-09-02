@@ -35,7 +35,7 @@ export default class CodechefLogin extends Component {
         this.props.onSuccess(response);
       });
     } else if (window.location.search.includes("error")) {
-      this.props.onFailure(new Error(getParams("error-description")));
+      this.props.onFailure(new Error(getParams("error")));
     }
   }
 
@@ -54,7 +54,7 @@ export default class CodechefLogin extends Component {
       })
     })
       .then(response => response.json())
-      .catch(err => this.props.onFailure(new Error(err)));
+      .catch(err => this.props.onFailure(err));
   }
 
   onButtonClick() {
