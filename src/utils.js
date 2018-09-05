@@ -21,6 +21,14 @@
  * SOFTWARE.
  */
 
+
+/**
+ * 
+ * @description Converts the params object to an url query string
+ * @param {*} params 
+ * @param {*} delimiter
+ *  
+ */
 export function toQueryString(params, delimiter = "&") {
   const keys = Object.keys(params);
 
@@ -35,6 +43,11 @@ export function toQueryString(params, delimiter = "&") {
   }, "");
 }
 
+
+/**
+ * @description Parse params from url query string
+ * @param {*} queryString 
+ */
 export function getParams(queryString) {
   const query = window.location.search.substring(1);
   const vars = query.split("&");
@@ -50,3 +63,5 @@ export function getParams(queryString) {
     });
   return code[0];
 }
+
+
