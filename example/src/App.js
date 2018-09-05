@@ -1,13 +1,27 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import CodechefLogin from "react-codechef-login";
+import "./App.css";
 
-import ExampleComponent from 'react-codechef-login'
+const responseCodechef = response => {
+  console.log(response);
+};
 
-export default class App extends Component {
-  render () {
+class App extends Component {
+  render() {
     return (
-      <div>
-        <ExampleComponent text='Modern React component module' />
+      <div className="App">
+        <CodechefLogin
+          clientId="your-client-id"
+          clientSecret="your-client-secret"
+          redirectUri="redirect-uri"
+          state="state-string"
+          onSuccess={responseCodechef}
+          onFailure={responseCodechef}
+        />
       </div>
-    )
+    );
   }
 }
+
+export default App;
+
