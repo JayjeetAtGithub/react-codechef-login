@@ -21,29 +21,18 @@
  * SOFTWARE.
  */
 
-
 /**
- * 
+ *
  * @description A React Package to integrate Codechef OAuth2.0 Login with React apps
  * @author Jayjeet Chakraborty <jc.github@rediffmail.com>
- * 
+ *
  */
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { toQueryString, getParams } from "./utils";
 import styles from "./styles.css";
-
-/**
- *
- * @description Describes urls as constants
- * @constant
- * @type {string}
- * @default
- *
- */
-const AUTHORIZATION_URL = "https://api.codechef.com/oauth/authorize?";
-const TOKEN_URL = "https://api.codechef.com/oauth/token";
+import { AUTHORIZATION_URL, TOKEN_URL } from "./urls";
 
 /**
  *
@@ -159,12 +148,9 @@ export default class CodechefLogin extends Component {
    *
    */
   render() {
-    let buttonStyle;
-    if (this.props.className) {
-      buttonStyle = this.props.className;
-    } else {
-      buttonStyle = styles.loginButton;
-    }
+    let buttonStyle = this.props.className
+      ? this.props.className
+      : styles.loginButton;
 
     return (
       <button className={buttonStyle} onClick={this.onButtonClick}>
@@ -173,4 +159,5 @@ export default class CodechefLogin extends Component {
     );
   }
 }
+
 
