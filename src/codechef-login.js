@@ -1,3 +1,8 @@
+/*
+ * React Codechef Login Component
+ *
+ **/
+
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { toQueryString, getParams } from "./utils";
@@ -9,7 +14,6 @@ const TOKEN_URL = "https://api.codechef.com/oauth/token";
 export default class CodechefLogin extends Component {
   constructor(props) {
     super(props);
-    this.onButtonClick = this.onButtonClick.bind(this);
   }
 
   static propTypes = {
@@ -39,7 +43,7 @@ export default class CodechefLogin extends Component {
     }
   }
 
-  getAccessToken(authorizationCode) {
+  getAccessToken = authorizationCode => {
     return fetch(TOKEN_URL, {
       method: "POST",
       headers: {
@@ -55,9 +59,9 @@ export default class CodechefLogin extends Component {
     })
       .then(response => response.json())
       .catch(err => this.props.onFailure(err));
-  }
+  };
 
-  onButtonClick() {
+  onButtonClick = () => {
     const { clientId, state, redirectUri } = this.props;
     const queryString = toQueryString({
       response_type: this.props.responseType,
@@ -66,7 +70,7 @@ export default class CodechefLogin extends Component {
       state: state
     });
     window.location.href = AUTHORIZATION_URL + queryString;
-  }
+  };
 
   render() {
     let buttonStyle;
@@ -83,3 +87,4 @@ export default class CodechefLogin extends Component {
     );
   }
 }
+
