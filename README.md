@@ -13,17 +13,32 @@ npm install --save react-codechef-login
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import CodechefLogin from "react-codechef-login";
+import "./App.css";
 
-import MyComponent from 'react-codechef-login'
+const responseCodechef = response => {
+  console.log(response);
+};
 
-class Example extends Component {
-  render () {
+class App extends Component {
+  render() {
     return (
-      <MyComponent />
-    )
+      <div className="App">
+        <CodechefLogin
+          clientId="your-client-id"
+          clientSecret="your-client-secret"
+          redirectUri="redirect-uri"
+          state="state-string"
+          onSuccess={responseCodechef}
+          onFailure={responseCodechef}
+        />
+      </div>
+    );
   }
 }
+
+export default App;
 ```
 
 ## License
