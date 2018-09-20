@@ -1,6 +1,6 @@
-# react-codechef-login
+# React Codechef Login
 
-> 
+> A Codechef OAuth Sign-in / Log-in Component for React
 
 [![NPM](https://img.shields.io/npm/v/react-codechef-login.svg)](https://www.npmjs.com/package/react-codechef-login) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
