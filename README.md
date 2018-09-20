@@ -26,10 +26,12 @@ class App extends Component {
     return (
       <div className="App">
         <CodechefLogin
-          clientId="your-client-id"
-          clientSecret="your-client-secret"
-          redirectUri="redirect-uri"
-          state="state-string"
+          clientId="abcd5hdy8hdb63bd"
+          clientSecret="2gd5dhfbd7sn8ff"
+          redirectUri="http://localhost:3000"
+          state="xyzabc"
+          className="my-fav-class"
+          buttonText="Login Now"
           onSuccess={responseCodechef}
           onFailure={responseCodechef}
         />
@@ -40,6 +42,57 @@ class App extends Component {
 
 export default App;
 ```
+
+###Props
+
+#### `clientId`
+
+`{string}` _required_
+
+Client ID for Codechef OAuth application
+
+#### `clientSecret`
+
+`{string}` _required_ 
+
+Client Secret for Codechef OAuth application
+
+#### `redirectUri`
+
+`{string}` _required_
+
+Registered redirect URI for Codechef OAuth application
+
+#### `state`
+
+`{string}` _required_
+
+#### `buttonText`
+
+`{string}` 
+
+Text to display on the button
+
+#### `className`
+
+`{string}` 
+
+CSS class for login button
+
+#### `onSuccess`
+
+`{function}` _required_
+
+Callback for successful login
+
+#### `onFailure`
+
+`{function}` _required_
+
+Callback for errors raised during login
+
+
+
 
 ## License
 
