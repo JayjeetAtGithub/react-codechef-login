@@ -21,6 +21,15 @@
     "predeploy": "cd example && npm install && npm run build",
     "deploy": "gh-pages -d example/build"
   },
+  "keywords": [
+    "react",
+    "reactjs",
+    "react-component",
+    "social-login",
+    "codechef-login",
+    "react-codechef-login",
+    "codechef"
+  ],
   "peerDependencies": {
     "prop-types": "^15.5.4",
     "react": "^15.0.0 || ^16.0.0",
