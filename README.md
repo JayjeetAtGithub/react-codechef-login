@@ -43,7 +43,7 @@ class App extends Component {
 export default App;
 ```
 
-###Props
+### Props
 
 #### `clientId`
 
@@ -66,6 +66,8 @@ Registered redirect URI for Codechef OAuth application
 #### `state`
 
 `{string}` _required_
+
+State parameter for your application
 
 #### `buttonText`
 
