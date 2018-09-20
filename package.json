@@ -1,6 +1,6 @@
 {
   "name": "react-codechef-login",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A react package to integrate codechef login to your react app.",
   "author": "JayjeetAtGithub",
   "license": "MIT",
