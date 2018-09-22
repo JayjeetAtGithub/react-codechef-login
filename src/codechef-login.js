@@ -13,11 +13,11 @@
  *
  */
 
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { toQueryString, getParams } from "./utils";
-import styles from "./styles.css";
-import { AUTHORIZATION_URL, TOKEN_URL } from "./urls";
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { toQueryString, getParams } from './utils'
+import styles from './styles.css'
+import { AUTHORIZATION_URL, TOKEN_URL } from './urls'
 
 /**
  *
@@ -33,7 +33,7 @@ export default class CodechefLogin extends Component {
    *
    */
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   /**
@@ -63,8 +63,8 @@ export default class CodechefLogin extends Component {
    *
    */
   static defaultProps = {
-    buttonText: "Login With Codechef",
-    responseType: "code"
+    buttonText: 'Login With Codechef',
+    responseType: 'code'
   };
 
   /**
@@ -74,12 +74,12 @@ export default class CodechefLogin extends Component {
    *
    */
   componentDidMount() {
-    if (window.location.search.includes("code")) {
-      this.getAccessToken(getParams("code").trim()).then(response => {
-        this.props.onSuccess(response);
-      });
-    } else if (window.location.search.includes("error")) {
-      this.props.onFailure(new Error(getParams("error")));
+    if (window.location.search.includes('code')) {
+      this.getAccessToken(getParams('code').trim()).then(response => {
+        this.props.onSuccess(response)
+      })
+    } else if (window.location.search.includes('error')) {
+      this.props.onFailure(new Error(getParams('error')))
     }
   }
 
@@ -93,12 +93,12 @@ export default class CodechefLogin extends Component {
    */
   getAccessToken = authorizationCode => {
     return fetch(TOKEN_URL, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json;charset=utf-8"
+        'Content-Type': 'application/json;charset=utf-8'
       },
       body: JSON.stringify({
-        grant_type: "authorization_code",
+        grant_type: 'authorization_code',
         code: authorizationCode,
         client_id: this.props.clientId,
         client_secret: this.props.clientSecret,
@@ -106,7 +106,7 @@ export default class CodechefLogin extends Component {
       })
     })
       .then(response => response.json())
-      .catch(err => this.props.onFailure(err));
+      .catch(err => this.props.onFailure(err))
   };
 
   /**
@@ -116,14 +116,14 @@ export default class CodechefLogin extends Component {
    *
    */
   onButtonClick = () => {
-    const { clientId, state, redirectUri } = this.props;
+    const { clientId, state, redirectUri } = this.props
     const queryString = toQueryString({
       response_type: this.props.responseType,
       client_id: clientId,
       redirect_uri: redirectUri,
       state: state
-    });
-    window.location.href = AUTHORIZATION_URL + queryString;
+    })
+    window.location.href = AUTHORIZATION_URL + queryString
   };
 
   /**
@@ -135,14 +135,12 @@ export default class CodechefLogin extends Component {
   render() {
     let buttonStyle = this.props.className
       ? this.props.className
-      : styles.loginButton;
+      : styles.loginButton
 
     return (
       <button className={buttonStyle} onClick={this.onButtonClick}>
         {this.props.buttonText}
       </button>
-    );
+    )
   }
 }
-
-

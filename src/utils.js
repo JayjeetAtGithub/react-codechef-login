@@ -6,47 +6,43 @@
  *
  */
 
-
 /**
- * 
+ *
  * @description Converts the params object to an url query string
- * @param {*} params 
+ * @param {*} params
  * @param {*} delimiter
- *  
+ *
  */
-export function toQueryString(params, delimiter = "&") {
-  const keys = Object.keys(params);
+export function toQueryString(params, delimiter = '&') {
+  const keys = Object.keys(params)
 
   return keys.reduce((str, key, index) => {
-    let query = `${str}${key}=${params[key]}`;
+    let query = `${str}${key}=${params[key]}`
 
     if (index < keys.length - 1) {
-      query += delimiter;
+      query += delimiter
     }
 
-    return query;
-  }, "");
+    return query
+  }, '')
 }
-
 
 /**
  * @description Parse params from url query string
- * @param {*} queryString 
+ * @param {*} queryString
  */
 export function getParams(queryString) {
-  const query = window.location.search.substring(1);
-  const vars = query.split("&");
+  const query = window.location.search.substring(1)
+  const vars = query.split('&')
   const code = vars
     .map(i => {
-      const pair = i.split("=");
-      if (pair[0] === queryString) return pair[1];
-      return null;
+      const pair = i.split('=')
+      if (pair[0] === queryString) return pair[1]
+      return null
     })
     .filter(d => {
-      if (d) return true;
-      return false;
-    });
-  return code[0];
+      if (d) return true
+      return false
+    })
+  return code[0]
 }
-
-

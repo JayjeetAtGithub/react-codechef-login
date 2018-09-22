@@ -6,7 +6,6 @@
  *
  */
 
-
 /**
  *
  * @description Describes urls as constants
@@ -15,5 +14,5 @@
  * @default
  *
  */
-export const AUTHORIZATION_URL = "https://api.codechef.com/oauth/authorize?";
-export const TOKEN_URL = "https://api.codechef.com/oauth/token";
+export const AUTHORIZATION_URL = 'https://api.codechef.com/oauth/authorize?'
+export const TOKEN_URL = 'https://api.codechef.com/oauth/token'

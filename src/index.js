@@ -6,4 +6,4 @@
  *
  */
 
-export { default } from './codechef-login';
+export { default } from './codechef-login'
