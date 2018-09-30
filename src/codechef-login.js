@@ -133,7 +133,7 @@ export default class CodechefLogin extends Component {
    *
    */
   render() {
-    let buttonStyle = this.props.className
+    const buttonStyle = this.props.className
       ? this.props.className
       : styles.loginButton
 
