@@ -52,7 +52,6 @@ export default class CodechefLogin extends Component {
     state: PropTypes.string.isRequired,
     className: PropTypes.string,
     redirectUri: PropTypes.string.isRequired,
-    responseType: PropTypes.string
   };
 
   /**
@@ -64,7 +63,6 @@ export default class CodechefLogin extends Component {
    */
   static defaultProps = {
     buttonText: 'Login With Codechef',
-    responseType: 'code'
   };
 
   /**
@@ -118,7 +116,7 @@ export default class CodechefLogin extends Component {
   onButtonClick = () => {
     const { clientId, state, redirectUri } = this.props
     const queryString = toQueryString({
-      response_type: this.props.responseType,
+      response_type: 'code',
       client_id: clientId,
       redirect_uri: redirectUri,
       state: state
@@ -144,3 +142,4 @@ export default class CodechefLogin extends Component {
     )
   }
 }
+
